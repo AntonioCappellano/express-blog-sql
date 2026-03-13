@@ -1,5 +1,5 @@
 const postsData = require("../data/DataPosts");
-
+const connection = require("../data/db")
 // Index
 
 function index(req, res) {
