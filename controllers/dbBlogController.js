@@ -16,7 +16,15 @@ function update(req, res) {}
 
 function modify(req, res) {}
 
-function destroy(req, res) {}
+function destroy(req, res) {
+  const {id} = req.params
+  const sql = `DELETE FROM posts WHERE id = ?`
+
+ connection.query(sql, [id], (err) => {
+    if (err) return res.status(500).json({ error: `Failed to delete posts` });
+    res.json({ success: true, message: `Eliminazione del post`});
+});
+}
 
 module.exports = {
   index,
